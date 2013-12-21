@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  color: MyString
+  size: MyString
+  price: 1
+  purchasepri: 1.5
+  deposit: 1
+  comments: MyString
+
+two:
+  color: MyString
+  size: MyString
+  price: 1
+  purchasepri: 1.5
+  deposit: 1
+  comments: MyString

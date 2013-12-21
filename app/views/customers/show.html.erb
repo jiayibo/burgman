@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Weibo:</strong>
+  <%= @customer.weibo %>
+</p>
+
+<p>
+  <strong>Taobao:</strong>
+  <%= @customer.taobao %>
+</p>
+
+<p>
+  <strong>Vip:</strong>
+  <%= @customer.vip %>
+</p>
+
+<%= link_to 'Edit', edit_customer_path(@customer) %> |
+<%= link_to 'Back', customers_path %>

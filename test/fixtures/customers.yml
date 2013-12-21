@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  weibo: MyString
+  taobao: MyString
+  vip: false
+
+two:
+  weibo: MyString
+  taobao: MyString
+  vip: false
