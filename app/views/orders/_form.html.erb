@@ -12,12 +12,24 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :customer_id %><br>
+    <%= f.text_field :customer_id %>
+  </div>
+  <div class="field">
+    <%= f.label :product_id %><br>
+    <%= f.text_field :product_id %>
+  </div>
+  <div class="field">
     <%= f.label :color %><br>
     <%= f.text_field :color %>
   </div>
   <div class="field">
     <%= f.label :size %><br>
     <%= f.text_field :size %>
+  </div>
+  <div class="field">
+    <%= f.label :state %><br>
+    <%= f.text_field :state %>
   </div>
   <div class="field">
     <%= f.label :price %><br>
@@ -28,12 +40,20 @@
     <%= f.text_field :purchasepri %>
   </div>
   <div class="field">
+    <%= f.label :currency %><br>
+    <%= f.text_field :currency %>
+  </div>
+  <div class="field">
     <%= f.label :deposit %><br>
     <%= f.number_field :deposit %>
   </div>
   <div class="field">
     <%= f.label :comments %><br>
     <%= f.text_field :comments %>
+  </div>
+  <div class="field">
+    <%= f.label :employee_id %><br>
+    <%= f.text_field :employee_id %>
   </div>
   <div class="actions">
     <%= f.submit %>

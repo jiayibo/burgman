@@ -3,12 +3,16 @@
 <table>
   <thead>
     <tr>
-      <th>Color</th>
-      <th>Size</th>
-      <th>Price</th>
-      <th>Purchasepri</th>
-      <th>Deposit</th>
-      <th>Comments</th>
+      <th> 客户</th>
+      <th> 预览</th>
+      <th>颜色</th>
+      <th>尺寸</th>
+      <th>订单状态</th>
+      <th>售价</th>
+      <th>购买价格</th>
+      <th>定金</th>
+      <th>备注</th>
+      <th>销售</th>
       <th></th>
       <th></th>
       <th></th>
@@ -18,12 +22,16 @@
   <tbody>
     <% @orders.each do |order| %>
       <tr>
+        <td><%= Customer.find(order.customer_id).weibo %></td>
+        <td><%=image_tag Product.find(order.product_id).preview.url(:thumb) %></td>
         <td><%= order.color %></td>
         <td><%= order.size %></td>
+        <td><%= order.state %></td>
         <td><%= order.price %></td>
-        <td><%= order.purchasepri %></td>
+        <td><%= order.purchasepri.to_s + " " + order.currency.to_s %></td>
         <td><%= order.deposit %></td>
         <td><%= order.comments %></td>
+        <td><%= Employee.find(order.employee_id).nick %></td>
         <td><%= link_to 'Show', order %></td>
         <td><%= link_to 'Edit', edit_order_path(order) %></td>
         <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
