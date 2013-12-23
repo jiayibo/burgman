@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131221053608) do
+ActiveRecord::Schema.define(version: 20131221054859) do
 
   create_table "customers", force: true do |t|
     t.string   "weibo"
@@ -44,6 +44,10 @@ ActiveRecord::Schema.define(version: 20131221053608) do
     t.string   "brand"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "preview_file_name"
+    t.string   "preview_content_type"
+    t.integer  "preview_file_size"
+    t.datetime "preview_updated_at"
   end
 
 end
