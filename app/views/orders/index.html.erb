@@ -26,9 +26,9 @@
         <td><%=image_tag Product.find(order.product_id).preview.url(:thumb) %></td>
         <td><%= order.color %></td>
         <td><%= order.size %></td>
-        <td><%= order.state %></td>
+        <td><%= order.state.text %></td>
         <td><%= order.price %></td>
-        <td><%= order.purchasepri.to_s + " " + order.currency.to_s %></td>
+        <td><%= order.currency.to_symbol + order.purchasepri.to_s %></td>
         <td><%= order.deposit %></td>
         <td><%= order.comments %></td>
         <td><%= Employee.find(order.employee_id).nick %></td>

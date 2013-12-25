@@ -38,6 +38,7 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'classy_enum', '~>3.3.2'
 gem 'paperclip', '~> 3.0'
 
 # Use ActiveModel has_secure_password

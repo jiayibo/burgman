@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131223193541) do
+ActiveRecord::Schema.define(version: 20131225200125) do
 
   create_table "customers", force: true do |t|
     t.string   "weibo"
@@ -38,11 +38,11 @@ ActiveRecord::Schema.define(version: 20131223193541) do
     t.string   "comments"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "state"
+    t.string   "state"
     t.integer  "product_id"
     t.integer  "customer_id"
     t.integer  "employee_id"
-    t.integer  "currency"
+    t.string   "currency"
   end
 
   create_table "products", force: true do |t|
