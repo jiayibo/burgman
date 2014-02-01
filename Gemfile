@@ -40,6 +40,7 @@ end
 
 gem 'classy_enum', '~>3.3.2'
 gem 'paperclip', '~> 3.0'
+gem 'rails-simple-search', '~> 0.9.3'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'

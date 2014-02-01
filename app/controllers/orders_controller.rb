@@ -4,7 +4,8 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.all
+    @search = Search.new(:order, params[:search], :per_page => 10)
+    @orders = @search.run
   end
 
   # GET /orders/1

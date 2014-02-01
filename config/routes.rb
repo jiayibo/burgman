@@ -1,4 +1,6 @@
 Burgman::Application.routes.draw do
+  match "/orders/index" => "orders#index", via: [:get, :post]
+
   resources :orders
 
   resources :customers
@@ -6,6 +8,7 @@ Burgman::Application.routes.draw do
   resources :employees
 
   resources :products
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -3,8 +3,8 @@
 <table>
   <thead>
     <tr>
-      <th> 客户</th>
-      <th> 预览</th>
+      <th>客户</th>
+      <th>预览</th>
       <th>颜色</th>
       <th>尺寸</th>
       <th>订单状态</th>
@@ -40,6 +40,23 @@
   </tbody>
 </table>
 
-<br>
+<br />
+  <% if @search.pages > 1 %>
+    <p>There are <%= @search.pages %> pages in total </p>
+  <% end %>
+<br />
 
 <%= link_to 'New Order', new_order_path %>
+
+<hr/>
+<h2>搜索</h2>
+<%= form_for @search, :url => "/orders/index" do |f| -%>
+  <%= f.label "客户" %> 
+  <%= f.text_field 'customer.weibo' %> 
+  <br/>
+  <%= f.label "状态" %> 
+  <%= f.select :state, State.select_options %> 
+<br/>
+  <%= f.submit "search" %>
+<% end %>
+
