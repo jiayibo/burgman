@@ -1,5 +1,5 @@
 class State < ClassyEnum::Base
-  def send_email?
+  def finish?
     false
   end
 end
@@ -11,8 +11,16 @@ class State::Valid < State
 end
 
 class State::Paid < State
-  def send_email?
+end
+
+class State::Delivered < State
+  def finish?
     true
   end
+end
 
+class State::Refund < State
+  def finish?
+    true
+  end
 end

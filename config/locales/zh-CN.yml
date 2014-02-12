@@ -197,14 +197,39 @@ zh-CN:
   activerecord:
     errors:
       <<: *errors
+
+  # For burgman
+  destroy: '删除'
+  delete_confirm: '真的要删？- -#'
   classy_enum:
     state:
       draft: '草稿'
       valid: '付定'
       paid: '买到'
+      delivered: '交付'
+      refund: '退款'
     currency:
       usd: '美元'
       gbp: '英镑'
       eur: '欧元'
       cny: '人民币'
       hkd: '港币'
+
+  order:
+    product: '产品'
+    color: '颜色'
+    size: '尺寸'
+    price: '售价'
+    purchase_price: '采购价'
+    state: '状态'
+    deposit: '定金'
+    comments: '留言'
+    grid_title: '订单总览'
+    new: '新增订单'
+  customer:
+    weibo: '客户微博'
+    taobao: '客户淘宝'
+  employee:
+    nick: '销售'
+
+
