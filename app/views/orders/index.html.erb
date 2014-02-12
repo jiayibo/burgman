@@ -1,62 +1,48 @@
 <h1>Listing orders</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>客户</th>
-      <th>预览</th>
-      <th>颜色</th>
-      <th>尺寸</th>
-      <th>订单状态</th>
-      <th>售价</th>
-      <th>购买价格</th>
-      <th>定金</th>
-      <th>备注</th>
-      <th>销售</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<%= grid(@orders_grid, show_filters: :when_filtered, hide_submit_button: true) do |g|
 
-  <tbody>
-    <% @orders.each do |order| %>
-      <tr>
-        <td><%= Customer.find(order.customer_id).weibo %></td>
-        <td><%=image_tag Product.find(order.product_id).preview.url(:thumb) %></td>
-        <td><%= order.color %></td>
-        <td><%= order.size %></td>
-        <td><%= order.state.text %></td>
-        <td><%= order.price %></td>
-        <td><%= order.currency.to_symbol + order.purchasepri.to_s %></td>
-        <td><%= order.deposit %></td>
-        <td><%= order.comments %></td>
-        <td><%= Employee.find(order.employee_id).nick %></td>
-        <td><%= link_to 'Show', order %></td>
-        <td><%= link_to 'Edit', edit_order_path(order) %></td>
-        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  g.column :name => I18n.t('order.Product'), :attribute => 'preview_file_name', :model => Product, :filter => false do |order|
+    link_to (image_tag Product.find(order.product_id).preview.url(:thumb)), edit_order_path(order)
+  end
 
-<br />
-  <% if @search.pages > 1 %>
-    <p>There are <%= @search.pages %> pages in total </p>
-  <% end %>
-<br />
+  g.column :name => I18n.t('Customer.weibo'), :attribute => 'weibo', :model => Customer, auto_reload:  true do |order|
+    Customer.find(order.customer_id).weibo
+  end
 
-<%= link_to 'New Order', new_order_path %>
+  g.column :name => 'Color', :attribute => 'color', auto_reload:  true do |order|
+    order.color
+  end
 
-<hr/>
-<h2>搜索</h2>
-<%= form_for @search, :url => "/orders/index" do |f| -%>
-  <%= f.label "客户" %> 
-  <%= f.text_field 'customer.weibo' %> 
-  <br/>
-  <%= f.label "状态" %> 
-  <%= f.select :state, State.select_options %> 
-<br/>
-  <%= f.submit "search" %>
-<% end %>
+  g.column :name => 'Size', :attribute => 'size', auto_reload:  true  do |order|
+    order.size
+  end
 
+  g.column  :name => 'State', :attribute => 'state', :custom_filter => State.select_options, auto_reload:  true do |order|
+    order.state.text
+  end
+
+  g.column  :name => 'Price', :attribute => 'price', auto_reload:  true do |order|
+    order.price
+  end
+
+  g.column  :name => 'Purchase Price', :attribute => 'purchasepri', auto_reload:  true do |order|
+    order.currency.to_symbol + order.purchasepri.to_s
+  end
+
+  g.column  :name => 'Deposit', :attribute => 'deposit', auto_reload:  true do |order|
+    order.deposit
+  end
+
+  g.column  :name => 'Commets', :attribute => 'comments', auto_reload:  true do |order|
+    order.comments
+  end
+
+  g.column :name => 'Employee', :attribute => 'nick', :model => Employee, auto_reload:  true do |order|
+    Employee.find(order.employee_id).nick
+  end
+
+  g.column   do |order|
+    link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' }
+  end
+end -%>

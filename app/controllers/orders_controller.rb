@@ -4,6 +4,9 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
+    @orders_grid = initialize_grid(Order,
+      :include => [:product, :customer, :employee],
+      :per_page => 20)
     @search = Search.new(:order, params[:search], :per_page => 10)
     @orders = @search.run
   end
