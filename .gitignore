@@ -18,7 +18,6 @@
 public/system/products/previews/*
 
 # Ignore other unneeded files.
-database.yml
 doc/
 *.swp
 *~
