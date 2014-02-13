@@ -199,6 +199,8 @@ zh-CN:
       <<: *errors
 
   # For burgman
+  home_title: '伯格曼'
+  home_message: '参见 '
   destroy: '删除'
   delete_confirm: '真的要删？- -#'
   classy_enum:

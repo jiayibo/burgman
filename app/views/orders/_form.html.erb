@@ -1,4 +1,4 @@
-<%= semantic_form_for(@order) do |f| %>
+<%= semantic_form_for @order do |f| %>
   <% if @order.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
@@ -11,25 +11,29 @@
     </div>
   <% end %>
 
-  <% f.inputs do %>
-    <%= f.input :customer_id%>
-    <%= f.input :product_id %>
-    <%= f.input :color %>
-    <%= f.input :size %>
+<%= f.inputs "Basic", :id => "basic" do %>
+  <%= f.input :customer_id, :required => true %>
+  <%= f.input :product_id, :required => true %>
+  <%= f.input :size, :required => true %>
+  <%= f.input :price, :required => true %>
+  <%= f.input :employee_id, :required => true, :input_html => { :value => '1' } %>
+<% end %>
 
-    <%= f.input :state, :as => :select, :label => "状态", :collection => State.select_options %>
+<%= f.actions do %>
+  <%= f.action :submit, :as => :button %>
+  <%= f.action :cancel, :as => :link %>
+<% end %>
 
-    <%= f.input :purchasepri %>
-    <%= f.input :currency, :as => :select, :collection => Currency.select_options %>
+<%= f.inputs "Advanced", :id => "advanced" do %>
+  <%= f.input :color, :required => false %>
+  <%= f.input :purchasepri, :required => false %>
+  <%= f.input :currency, :as => :select, :collection => options_for_select(Currency.select_options, Currency.to_a.first), :required => false %>
+  <%= f.input :state, :as => :select, :label => "状态",
+    # This is to make the default value is 'draft'.
+    :collection => options_for_select(State.select_options, State.to_a.first),
+    :required => false %>
+  <%= f.input :deposit, :required => false %>
+  <%= f.input :comments, :required => false %>
+<% end %>
 
-
-    <%= f.input :deposit %>
-    <%= f.input :comments %>
-    <%= f.input :employee_id %>
-    
-
-    <%= f.actions do %>
-      <%= f.action :submit %>
-    <% end %>
-  <% end %>
 <% end %>

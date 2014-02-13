@@ -41,7 +41,8 @@ end
 gem 'classy_enum', '~>3.3.2'
 gem 'paperclip', '~> 3.0'
 gem 'rails-simple-search', '~> 0.9.3'
-gem 'formtastic'
+gem 'formtastic', :git => 'git://github.com/justinfrench/formtastic'
+gem 'formtastic-bootstrap'
 gem 'bootstrap-sass'
 gem "wice_grid", '~> 3.4.0'
 
