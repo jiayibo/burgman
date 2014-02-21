@@ -1,4 +1,8 @@
 class OrdersController < ApplicationController
+
+  autocomplete :customer, :weibo
+  autocomplete :employee, :nick
+
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 
   # GET /orders
@@ -73,6 +77,6 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:color, :size, :price, :purchasepri, :deposit, :comments, :state, :product_id, :customer_id, :employee_id, :currency)
+      params.require(:order).permit(:color, :size, :price, :purchasepri, :deposit, :comments, :state, :product_id, :customer_id, :employee_id, :currency, customer_attributes: [:weibo, :taobao], employee_attributes: [:nick])
     end
 end

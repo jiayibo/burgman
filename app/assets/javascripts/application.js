@@ -16,4 +16,5 @@
 //= require jquery.ui.all
 //= require bootstrap
 //= require wice_grid
+//= require autocomplete-rails
 //= require_tree .

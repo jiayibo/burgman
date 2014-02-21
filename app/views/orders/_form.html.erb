@@ -11,29 +11,40 @@
     </div>
   <% end %>
 
-<%= f.inputs "Basic", :id => "basic" do %>
-  <%= f.input :customer_id, :required => true %>
-  <%= f.input :product_id, :required => true %>
-  <%= f.input :size, :required => true %>
-  <%= f.input :price, :required => true %>
-  <%= f.input :employee_id, :required => true, :input_html => { :value => '1' } %>
-<% end %>
+  <%= f.inputs "Basic", :id => "basic" do %>
+    <%= f.label "weibo" %><br />
+    <%= f.autocomplete_field :customer_weibo, autocomplete_customer_weibo_orders_path, :id_element => '#customer_id' %>
+    <%= f.hidden_field :customer_id, :id => "customer_id" %>
+    <%= f.input :product_id, :required => true %>
+    <%= f.input :size, :required => true %>
+    <%= f.input :price, :required => true %>
+    <%= f.label "sales" %><br />
+    <%= f.autocomplete_field :employee_nick, autocomplete_employee_nick_orders_path, :id_element => '#employee_id' %>
+    <%= f.hidden_field :employee_id, :id => "employee_id" %>
+  <% end %>
 
-<%= f.actions do %>
-  <%= f.action :submit, :as => :button %>
-  <%= f.action :cancel, :as => :link %>
-<% end %>
 
-<%= f.inputs "Advanced", :id => "advanced" do %>
-  <%= f.input :color, :required => false %>
-  <%= f.input :purchasepri, :required => false %>
-  <%= f.input :currency, :as => :select, :collection => options_for_select(Currency.select_options, Currency.to_a.first), :required => false %>
-  <%= f.input :state, :as => :select, :label => "状态",
-    # This is to make the default value is 'draft'.
-    :collection => options_for_select(State.select_options, State.to_a.first),
-    :required => false %>
-  <%= f.input :deposit, :required => false %>
-  <%= f.input :comments, :required => false %>
-<% end %>
+  <%= f.actions do %>
+    <%= f.action :submit, :as => :button %>
+    <%= f.action :cancel, :as => :link %>
+  <% end %>
+
+  <%= f.inputs "Advanced", :id => "advanced" do %>
+    <%= f.input :color, :required => false %>
+    <%= f.input :purchasepri, :required => false %>
+    <%= f.input :currency, :as => :select, :collection => options_for_select(Currency.select_options, Currency.to_a.first), :required => false %>
+    <%= f.input :state, :as => :select, :label => "状态",
+      # This is to make the default value is 'draft'.
+      :collection => options_for_select(State.select_options, State.to_a.first),
+      :required => false %>
+    <%= f.input :deposit, :required => false %>
+    <%= f.input :comments, :required => false %>
+
+
+
+
+
+
+  <% end %>
 
 <% end %>

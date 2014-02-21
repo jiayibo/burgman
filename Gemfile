@@ -46,6 +46,8 @@ gem 'formtastic-bootstrap'
 gem 'bootstrap-sass'
 gem "wice_grid", '~> 3.4.0'
 
+gem 'rails3-jquery-autocomplete'
+
 gem 'jquery-ui-themes'
 gem 'jquery-ui-rails'
 

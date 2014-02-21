@@ -5,7 +5,10 @@ Burgman::Application.routes.draw do
   match '/contact', to: 'static_pages#contact', via: 'get'
   match "/orders/index" => "orders#index", via: [:get, :post]
 
-  resources :orders
+  resources :orders do
+    get :autocomplete_customer_weibo, :on => :collection
+    get :autocomplete_employee_nick, :on => :collection
+  end
 
   resources :customers
 
